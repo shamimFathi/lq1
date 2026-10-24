@@ -316,6 +316,22 @@
 .nlq .nlq-footer a:hover{color:#fff}
 .nlq .nlq-footer .nlq-ic{width:16px;height:16px}
 
+.nlq .nlq-badge--cert{background:var(--c-navy);color:#fff}
+.nlq .nlq-hero__img{display:none}
+.nlq .nlq-mbar__off{display:inline-block;background:#e11d48;color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:0 7px;vertical-align:middle}
+.nlq .nlq-mbar__price s{display:inline}
+@media (max-width:991px){
+  .nlq .nlq-hero{padding:14px 0 22px}
+  .nlq .nlq-hero__img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin-top:12px;box-shadow:0 8px 24px rgba(19,32,74,.15)}
+  .nlq .nlq-hero h1{font-size:22px;margin-top:14px}
+  .nlq .nlq-sub{font-size:15px}
+  .nlq .nlq-badges{margin-top:12px}
+  .nlq .nlq-byline{margin-top:12px}
+  .nlq .nlq-meta{flex-direction:column;gap:0;margin-top:10px}
+  .nlq .nlq-meta li{padding:10px 0;border-top:1px solid #d9e2f5;gap:12px;font-size:15px}
+  .nlq .nlq-meta .nlq-ic{width:34px;height:34px;padding:8px;border-radius:50%;background:#fff}
+  .nlq .nlq-card .nlq-media{display:none}
+}
 /* Mobile sticky buy bar */
 .nlq .nlq-mbar{position:fixed;inset:auto 0 0 0;z-index:60;background:#fff;border-top:1px solid var(--c-border);box-shadow:0 -6px 20px rgba(19,32,74,.1);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .25s}
 .nlq .nlq-mbar.is-visible{transform:none}
@@ -379,12 +395,14 @@
         <li aria-current="page">دورهٔ آموزشی LQ1</li>
       </ol>
     </nav>
+    <img class="nlq-hero__img" src="https://namdaracademy.com/figma/lq1bannercopy1.jpg" alt="دورهٔ آموزشی LQ1" width="740" height="416">
+    <h1 id="nlq-title">دورهٔ آموزشی LQ1 <bdi dir="ltr">(Liquidity Stage 1)</bdi>، آموزش مبتنی بر نقدینگی</h1>
+    <p class="nlq-sub">دوره‌ای تخصصی در معامله‌گری تکنیکال که بر درک حرکات نمودار و انجام معامله بر اساس واکنش قیمت به نواحی نقدینگی و برداشت آن تمرکز دارد.</p>
     <div class="nlq-badges">
       <span class="nlq-badge nlq-badge--best">پرفروش</span>
       <span class="nlq-badge nlq-badge--level">سطح پیشرفته</span>
+      <span class="nlq-badge nlq-badge--cert">گواهی‌نامه</span>
     </div>
-    <h1 id="nlq-title">دورهٔ آموزشی LQ1 <bdi dir="ltr">(Liquidity Stage 1)</bdi>، آموزش مبتنی بر نقدینگی</h1>
-    <p class="nlq-sub">دوره‌ای تخصصی در معامله‌گری تکنیکال که بر درک حرکات نمودار و انجام معامله بر اساس واکنش قیمت به نواحی نقدینگی و برداشت آن تمرکز دارد.</p>
     <div class="nlq-byline">
       <span class="nlq-byline__av" aria-hidden="true">ا</span>
       <span>مدرس: <a href="#nlq-instructor">استاد امیرحسین نام‌آور</a></span>
@@ -393,6 +411,7 @@
       <li><svg class="nlq-ic" aria-hidden="true"><use href="#nlq-users"/></svg><span><strong>۳٬۲۲۰</strong> دانش‌پذیر</span></li>
       <li><svg class="nlq-ic" aria-hidden="true"><use href="#nlq-book"/></svg><span><strong>۴۶</strong> درس ویدیویی</span></li>
       <li><svg class="nlq-ic" aria-hidden="true"><use href="#nlq-bars"/></svg><span>سطح <strong>پیشرفته</strong></span></li>
+      <li><svg class="nlq-ic" aria-hidden="true"><use href="#nlq-inf"/></svg><span>دسترسی <strong>مادام‌العمر</strong></span></li>
     </ul>
   </section>
 
@@ -655,7 +674,7 @@
 
 <!-- Mobile sticky buy bar -->
 <div class="nlq-mbar" id="nlq-mbar" aria-hidden="true">
-  <div class="nlq-mbar__price"><s>۲۸٬۵۸۹٬۰۰۰</s><strong>۲۰٬۸۸۹٬۰۰۰ تومان</strong></div>
+  <div class="nlq-mbar__price"><s>۲۸٬۵۸۹٬۰۰۰</s> <span class="nlq-mbar__off">۲۷٪</span><br><strong>۲۰٬۸۸۹٬۰۰۰ تومان</strong></div>
   <a class="nlq-btn nlq-btn--primary js-cta" data-cta="mobile_bar" href="https://namdaracademy.com/lq1/funnel?entry=lq1" tabindex="-1">ثبت‌نام در دوره</a>
 </div>
 
@@ -815,7 +834,7 @@
       var pastCard = cardCta.getBoundingClientRect().bottom < 0;
       var f = finalSec ? finalSec.getBoundingClientRect() : null;
       var finalInView = f ? (f.top < vh && f.bottom > 0) : false;
-      var show = pastCard && !finalInView;
+      var show = !finalInView;
       mbar.classList.toggle('is-visible', show);
       mbar.setAttribute('aria-hidden', show ? 'false' : 'true');
       mbar.querySelector('a').tabIndex = show ? 0 : -1;
